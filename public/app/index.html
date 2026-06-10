@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WholesaleOS — App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/app/app.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <a href="/" class="logo"><span class="logo-mark">▲</span> Wholesale<span class="logo-accent">OS</span></a>
+      <nav class="side-nav">
+        <a href="#/dashboard" data-view="dashboard"><span>◧</span> Dashboard</a>
+        <a href="#/pipeline" data-view="pipeline"><span>⇶</span> Pipeline</a>
+        <a href="#/buyers" data-view="buyers"><span>👥</span> Buyers</a>
+        <a href="#/settings" data-view="settings"><span>⚙</span> Settings</a>
+      </nav>
+      <div class="ai-badge" id="aiBadge" title="">
+        <span class="status-dot"></span><span id="aiBadgeText">…</span>
+      </div>
+    </aside>
+    <main class="main" id="main"><!-- views render here --></main>
+  </div>
+
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <div class="modal" id="modal" role="dialog" aria-modal="true"></div>
+  </div>
+
+  <div class="toast" id="toast" hidden></div>
+
+  <script src="/app/app.js"></script>
+</body>
+</html>

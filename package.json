@@ -1,0 +1,17 @@
+{
+  "name": "wholesaleos",
+  "version": "1.0.0",
+  "description": "AI-powered deal pipeline for real estate wholesalers — pipeline CRM, deal analyzer, AI negotiation agent, buyers list.",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.74.0"
+  }
+}
