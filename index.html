@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WholesaleOS — The AI Operating System for Real Estate Wholesalers</title>
+  <meta name="description" content="WholesaleOS gives you an AI acquisitions agent that finds houses, writes offers, and negotiates with listing agents — plus a deal-data engine and a manager that watches it all." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>" />
+</head>
+<body>
+
+  <!-- ======================= NAV ======================= -->
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="#" class="logo">
+        <span class="logo-mark">▲</span>
+        Wholesale<span class="logo-accent">OS</span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#how-it-works">How it works</a>
+        <a href="#products">Products</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="nav-cta">
+        <a href="#" class="btn btn-ghost">Log in</a>
+        <a href="#pricing" class="btn btn-primary">Get started</a>
+      </div>
+      <button class="nav-burger" id="navBurger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ======================= HERO ======================= -->
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="container hero-inner">
+      <div class="hero-copy reveal">
+        <div class="badge">
+          <span class="badge-dot"></span>
+          Now closing on-market deals in 38 states
+        </div>
+        <h1>The AI operating system for <span class="grad-text">real estate wholesalers</span>.</h1>
+        <p class="hero-sub">
+          Stop gluing five tools together. WholesaleOS gives you an AI acquisitions
+          agent that finds houses, writes offers, and negotiates with listing agents —
+          while you focus on closing.
+        </p>
+        <div class="hero-actions">
+          <a href="#pricing" class="btn btn-primary btn-lg">Start closing deals →</a>
+          <a href="#how-it-works" class="btn btn-outline btn-lg">Watch how it works</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><strong>4,200+</strong><span>offers written</span></div>
+          <div class="stat"><strong>$31M</strong><span>in contracts assigned</span></div>
+          <div class="stat"><strong>24/7</strong><span>follow-up, never sleeps</span></div>
+        </div>
+      </div>
+
+      <!-- AI agent chat mockup -->
+      <div class="hero-visual reveal delay-1">
+        <div class="chat-card">
+          <div class="chat-header">
+            <div class="chat-avatar">R</div>
+            <div>
+              <div class="chat-name">Remi · AI Acquisitions Agent</div>
+              <div class="chat-status"><span class="status-dot"></span> Negotiating with listing agent</div>
+            </div>
+          </div>
+          <div class="chat-body" id="chatBody">
+            <div class="msg msg-in">Hi Remi — my seller saw your offer on 412 Maple Ave. $185k is too low, they're firm at $205k.</div>
+            <div class="msg msg-out">Thanks, Dana. Based on comps within 0.5mi (3 sold under $195k in 60 days) and the roof condition noted in the listing, we can come up to $191,500 — cash, as-is, 14-day close, no inspection contingency.</div>
+            <div class="msg msg-in">Let me run it by them…</div>
+            <div class="msg msg-in">They'll do $193k if you can close in 10 days.</div>
+            <div class="msg msg-out">Done at $193k with a 10-day close. Sending the updated contract now. 📄</div>
+            <div class="msg msg-system">✅ Deal moved to <b>Under Contract</b> — projected assignment fee: $14,000</div>
+          </div>
+          <div class="chat-input">
+            <span>Remi is typing…</span>
+            <div class="typing"><i></i><i></i><i></i></div>
+          </div>
+        </div>
+        <div class="float-card float-1">
+          <span class="float-emoji">🏠</span>
+          <div><b>New lead matched</b><span>3br/2ba · 22% below ARV</span></div>
+        </div>
+        <div class="float-card float-2">
+          <span class="float-emoji">📈</span>
+          <div><b>Daily report ready</b><span>12 active negotiations</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= SOCIAL PROOF ======================= -->
+  <section class="proof">
+    <div class="container">
+      <p class="proof-label">Trusted by solo wholesalers and multi-market teams</p>
+      <div class="proof-logos">
+        <span>APEX&nbsp;HOMES</span>
+        <span>BlueDoor&nbsp;Capital</span>
+        <span>REI&nbsp;Collective</span>
+        <span>FastTrack&nbsp;Offers</span>
+        <span>Summit&nbsp;Equity</span>
+        <span>Brick&nbsp;&amp;&nbsp;Main</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= HOW IT WORKS ======================= -->
+  <section class="section" id="how-it-works">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">How it works</span>
+        <h2>From listing to assignment, <span class="grad-text">on autopilot</span>.</h2>
+        <p>Three steps. Zero cold calls. Your AI agent handles the grind while you approve the deals.</p>
+      </div>
+      <div class="steps">
+        <div class="step-card reveal">
+          <div class="step-num">01</div>
+          <h3>Feed it deals</h3>
+          <p>Dealfeed scans on-market listings around the clock and surfaces only the properties that fit your buy box — price, spread, condition, days on market.</p>
+        </div>
+        <div class="step-card reveal delay-1">
+          <div class="step-num">02</div>
+          <h3>Remi works them</h3>
+          <p>Your AI agent writes the offer, contacts the listing agent, negotiates within the limits you set, and follows up until you say stop. Every conversation saved.</p>
+        </div>
+        <div class="step-card reveal delay-2">
+          <div class="step-num">03</div>
+          <h3>You close</h3>
+          <p>When a seller says yes, you get the contract, the comps, and the full conversation history. Sign, assign, collect your fee.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= PRODUCTS ======================= -->
+  <section class="section section-alt" id="products">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">The stack</span>
+        <h2>Three products. <span class="grad-text">One operating system.</span></h2>
+        <p>Everything lives inside the CRM you already use — no more duct-taping vendors together.</p>
+      </div>
+      <div class="products">
+        <div class="product-card reveal">
+          <div class="product-icon">🤖</div>
+          <h3>Remi</h3>
+          <span class="product-tag">AI Acquisitions Agent</span>
+          <p>Trained for real estate negotiation. Remi learns the way you talk, the prices you'll pay, and when to walk away. Handles on-market deals out of the box — build a custom Remi for any deal type on Pro.</p>
+          <ul>
+            <li>Writes &amp; sends offers automatically</li>
+            <li>Negotiates with listing agents via email &amp; SMS</li>
+            <li>Relentless follow-up until you say stop</li>
+            <li>Every conversation saved to your dashboard</li>
+          </ul>
+        </div>
+        <div class="product-card product-featured reveal delay-1">
+          <div class="product-icon">📡</div>
+          <h3>Dealfeed</h3>
+          <span class="product-tag">Deal Data Engine</span>
+          <p>An always-on pipeline of opportunities. Dealfeed filters thousands of listings against your buy box and ranks them by projected spread, so Remi only works deals worth working.</p>
+          <ul>
+            <li>Live MLS &amp; on-market scanning</li>
+            <li>Instant comps and ARV estimates</li>
+            <li>Buy-box matching with deal scoring</li>
+            <li>Off-market sources shipping soon</li>
+          </ul>
+        </div>
+        <div class="product-card reveal delay-2">
+          <div class="product-icon">🧠</div>
+          <h3>Atlas</h3>
+          <span class="product-tag">Orchestration Layer</span>
+          <p>The manager that never clocks out. When you're running volume, Atlas watches every Remi you have working, checks every conversation, and flags exactly what needs your attention.</p>
+          <ul>
+            <li>Monitors all active negotiations</li>
+            <li>Flags stalled or at-risk deals</li>
+            <li>Daily digest of your entire pipeline</li>
+            <li>Built for multi-market operators</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= STATS BAND ======================= -->
+  <section class="stats-band">
+    <div class="container stats-band-inner">
+      <div class="band-stat reveal"><strong data-count="4200">0</strong><span>Offers written by Remi</span></div>
+      <div class="band-stat reveal delay-1"><strong data-count="38">0</strong><span>States covered</span></div>
+      <div class="band-stat reveal delay-2"><strong data-count="11">0</strong><span>Avg. days to contract</span></div>
+      <div class="band-stat reveal delay-3"><strong data-count="97">0</strong><span>% follow-up rate</span></div>
+    </div>
+  </section>
+
+  <!-- ======================= TESTIMONIALS ======================= -->
+  <section class="section" id="testimonials">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Results</span>
+        <h2>Operators running <span class="grad-text">real volume</span> love it.</h2>
+      </div>
+      <div class="testimonials">
+        <figure class="t-card reveal">
+          <div class="t-stars">★★★★★</div>
+          <blockquote>"I went from 40 cold calls a day to approving offers over coffee. Remi locked up 3 contracts my first month — $26k in assignment fees."</blockquote>
+          <figcaption><div class="t-avatar">MJ</div><div><b>Marcus J.</b><span>Solo wholesaler · Atlanta, GA</span></div></figcaption>
+        </figure>
+        <figure class="t-card reveal delay-1">
+          <div class="t-stars">★★★★★</div>
+          <blockquote>"We run 4 markets with a 3-person team. Atlas's daily digest replaced two VAs and a whole lot of spreadsheet anxiety."</blockquote>
+          <figcaption><div class="t-avatar">SR</div><div><b>Sofia R.</b><span>Team lead · Dallas–Phoenix–Tampa</span></div></figcaption>
+        </figure>
+        <figure class="t-card reveal delay-2">
+          <div class="t-stars">★★★★★</div>
+          <blockquote>"The negotiation transcripts sold me. Remi countered with comps I would've missed and got us $9k under our max offer."</blockquote>
+          <figcaption><div class="t-avatar">DK</div><div><b>Devon K.</b><span>Flipper turned wholesaler · Ohio</span></div></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= PRICING ======================= -->
+  <section class="section section-alt" id="pricing">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Pricing</span>
+        <h2>Month-to-month. <span class="grad-text">Cancel anytime.</span></h2>
+        <p>No contracts, no setup fees. One closed deal pays for years of the platform.</p>
+      </div>
+      <div class="pricing">
+        <div class="price-card reveal">
+          <h3>Starter</h3>
+          <div class="price"><span class="amount">$297</span><span class="per">/mo</span></div>
+          <p class="price-desc">For solo operators getting their first deals under contract.</p>
+          <ul>
+            <li>✓ Remi for on-market deals</li>
+            <li>✓ Dealfeed with buy-box matching</li>
+            <li>✓ Unlimited offers &amp; follow-ups</li>
+            <li>✓ Conversation dashboard</li>
+            <li>✓ Community access</li>
+          </ul>
+          <a href="#" class="btn btn-outline btn-block">Start with Starter</a>
+        </div>
+        <div class="price-card price-featured reveal delay-1">
+          <div class="price-pill">Most popular</div>
+          <h3>Pro</h3>
+          <div class="price"><span class="amount">$497</span><span class="per">/mo</span></div>
+          <p class="price-desc">For operators who want a custom Remi for any kind of deal.</p>
+          <ul>
+            <li>✓ Everything in Starter</li>
+            <li>✓ Build your own Remi for any deal type</li>
+            <li>✓ Custom negotiation playbooks</li>
+            <li>✓ Multi-market support</li>
+            <li>✓ Priority support</li>
+          </ul>
+          <a href="#" class="btn btn-primary btn-block">Go Pro</a>
+        </div>
+        <div class="price-card reveal delay-2">
+          <h3>Pro + Atlas</h3>
+          <div class="price"><span class="amount">$794</span><span class="per">/mo</span></div>
+          <p class="price-desc">For teams running volume who need the manager watching it all.</p>
+          <ul>
+            <li>✓ Everything in Pro</li>
+            <li>✓ Atlas orchestration layer</li>
+            <li>✓ Daily pipeline digest</li>
+            <li>✓ Stalled-deal &amp; risk flagging</li>
+            <li>✓ Dedicated onboarding</li>
+          </ul>
+          <a href="#" class="btn btn-outline btn-block">Scale with Atlas</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= FAQ ======================= -->
+  <section class="section" id="faq">
+    <div class="container container-narrow">
+      <div class="section-head reveal">
+        <span class="eyebrow">FAQ</span>
+        <h2>Questions, <span class="grad-text">answered</span>.</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal">
+          <summary>Do I need any tech skills to use this?<span class="faq-icon">+</span></summary>
+          <p>No. You set your buy box and approval limits in plain English during onboarding. Remi handles everything else, and you approve deals from your phone.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>Does Remi actually talk to real agents?<span class="faq-icon">+</span></summary>
+          <p>Yes — via email and SMS, in your name or your company's. Every message is logged, and you can set Remi to require your approval before sending counters above any threshold.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>What about off-market deals?<span class="faq-icon">+</span></summary>
+          <p>The base Remi is built for on-market (MLS-listed) deals today. Off-market sourcing and seller-direct outreach are on the roadmap, and Pro users can build custom Remis for other deal types now.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>Am I locked into a contract?<span class="faq-icon">+</span></summary>
+          <p>No. Everything is month-to-month and you can cancel anytime from your dashboard — no calls, no retention scripts.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>What markets does it cover?<span class="faq-icon">+</span></summary>
+          <p>Dealfeed currently covers on-market listings in 38 states, and we're adding more every quarter. You can run multiple markets from one account on Pro.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= CTA ======================= -->
+  <section class="cta">
+    <div class="container cta-inner reveal">
+      <h2>Your next deal is already listed.<br /><span class="grad-text">Send Remi to go get it.</span></h2>
+      <p>Join hundreds of wholesalers who stopped cold calling and started closing.</p>
+      <a href="#pricing" class="btn btn-primary btn-lg">Get started today →</a>
+      <span class="cta-note">Month-to-month · Cancel anytime · Setup in under 30 minutes</span>
+    </div>
+  </section>
+
+  <!-- ======================= FOOTER ======================= -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="logo"><span class="logo-mark">▲</span> Wholesale<span class="logo-accent">OS</span></a>
+        <p>The AI operating system for real estate wholesalers.</p>
+      </div>
+      <div class="footer-cols">
+        <div>
+          <h4>Product</h4>
+          <a href="#products">Remi</a>
+          <a href="#products">Dealfeed</a>
+          <a href="#products">Atlas</a>
+          <a href="#pricing">Pricing</a>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <a href="#">About</a>
+          <a href="#">Community</a>
+          <a href="#">Careers</a>
+          <a href="#">Contact</a>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <a href="#faq">FAQ</a>
+          <a href="#">Blog</a>
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2026 WholesaleOS. All rights reserved.</span>
+      <span>Results vary. Real estate investing involves risk.</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
