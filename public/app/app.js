@@ -32,7 +32,28 @@ const timeAgo = (iso) => {
   return `${Math.round(secs / 86400)}d ago`;
 };
 
+// Hosting mode: "server" (Node backend) or "local" (static host — state in
+// localStorage, Claude called directly from the browser). Detected at startup.
+let LOCAL_MODE = false;
+
+async function detectMode() {
+  try {
+    const res = await fetch("/api/health", { headers: { Accept: "application/json" } });
+    if (!res.ok) throw new Error();
+    await res.json();
+  } catch {
+    LOCAL_MODE = true;
+  }
+}
+
 async function api(path, options = {}) {
+  if (LOCAL_MODE) {
+    try {
+      return await window.localApi(path, options);
+    } catch (e) {
+      throw new Error(e.message || "Request failed");
+    }
+  }
   const res = await fetch(path, {
     headers: { "Content-Type": "application/json" },
     ...options,
@@ -80,7 +101,9 @@ async function loadAiBadge() {
       : `${agentName} · offline mode`;
     badge.title = settings.ai_enabled
       ? "AI agent is powered by the Claude API"
-      : "Set ANTHROPIC_API_KEY and restart to enable the Claude-powered agent. A rule-based negotiator is active meanwhile.";
+      : LOCAL_MODE
+        ? "Add your Anthropic API key in Settings to enable the Claude-powered agent. A rule-based negotiator is active meanwhile."
+        : "Set ANTHROPIC_API_KEY and restart to enable the Claude-powered agent. A rule-based negotiator is active meanwhile.";
   } catch { /* non-fatal */ }
 }
 
@@ -453,6 +476,26 @@ async function renderSettings() {
         <p style="font-size:14px;color:var(--text-dim);margin-bottom:12px">
           Status: <b style="color:${settings.ai_enabled ? "var(--accent)" : "var(--warn)"}">${settings.ai_enabled ? "Claude API connected" : "Offline (rule-based fallback)"}</b>
         </p>
+        ${LOCAL_MODE ? `
+        <form id="apiKeyForm">
+          <div class="field">
+            <label>Anthropic API key</label>
+            <input name="anthropic_api_key" type="password" value="${esc(settings.anthropic_api_key || "")}" placeholder="sk-ant-…" autocomplete="off">
+          </div>
+          <div style="display:flex;gap:10px">
+            <button class="btn btn-primary btn-sm" type="submit">Save key</button>
+            ${settings.anthropic_api_key ? `<button class="btn btn-danger btn-sm" type="button" id="clearKey">Remove key</button>` : ""}
+          </div>
+        </form>
+        <p style="font-size:13.5px;color:var(--text-dim);margin-top:12px">
+          The key is stored only in <b>this browser</b> (localStorage) and sent only to
+          <code style="color:var(--accent)">api.anthropic.com</code>. Get one at
+          <a href="https://console.anthropic.com" target="_blank" rel="noopener" style="color:var(--accent)">console.anthropic.com</a>.
+          Without a key, a deterministic rule-based negotiator keeps the app fully functional.
+        </p>
+        <p style="font-size:13.5px;color:var(--text-dim);margin-top:10px">
+          ⚠ Your deals live in this browser too — clearing site data clears them.
+        </p>` : `
         <p style="font-size:13.5px;color:var(--text-dim)">
           The negotiation agent uses the Claude API when an <code style="color:var(--accent)">ANTHROPIC_API_KEY</code>
           environment variable is set on the server. Without it, a deterministic rule-based negotiator keeps the app
@@ -460,9 +503,27 @@ async function renderSettings() {
         </p>
         <p style="font-size:13.5px;color:var(--text-dim);margin-top:10px">
           To enable Claude: <code style="color:var(--accent)">export ANTHROPIC_API_KEY=sk-ant-…</code> then restart the server.
-        </p>
+        </p>`}
       </div>
     </div>`;
+
+  if (LOCAL_MODE) {
+    document.getElementById("apiKeyForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const key = new FormData(e.target).get("anthropic_api_key").trim();
+      await api("/api/settings", { method: "PUT", body: { anthropic_api_key: key } });
+      toast(key ? "API key saved — Claude agent enabled" : "Key removed");
+      await loadAiBadge();
+      renderSettings();
+    });
+    const clearBtn = document.getElementById("clearKey");
+    if (clearBtn) clearBtn.addEventListener("click", async () => {
+      await api("/api/settings", { method: "PUT", body: { anthropic_api_key: "" } });
+      toast("Key removed");
+      await loadAiBadge();
+      renderSettings();
+    });
+  }
 
   document.getElementById("settingsForm").addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -550,4 +611,4 @@ async function route() {
 }
 
 window.addEventListener("hashchange", route);
-loadAiBadge().then(route);
+detectMode().then(loadAiBadge).then(route);

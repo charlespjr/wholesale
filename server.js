@@ -265,7 +265,12 @@ async function handleApi(req, res, url) {
 
 function serveStatic(req, res, url) {
   let pathname = decodeURIComponent(url.pathname);
-  if (pathname === "/app" || pathname === "/app/") pathname = "/app/index.html";
+  // Assets in /app are referenced relatively, so the page must live at /app/.
+  if (pathname === "/app") {
+    res.writeHead(301, { Location: "/app/" });
+    return res.end();
+  }
+  if (pathname === "/app/") pathname = "/app/index.html";
   if (pathname === "/") pathname = "/index.html";
 
   const filePath = path.normalize(path.join(PUBLIC_DIR, pathname));
